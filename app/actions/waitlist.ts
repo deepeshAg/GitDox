@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from 'zod'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 import { EmailTemplate } from '../components/email-template'
 
 const schema = z.object({
@@ -10,7 +10,6 @@ const schema = z.object({
 
 export async function joinWaitlist(prevState: any, formData: FormData) {
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY)
     const email = formData.get('email')
     
     if (!email) {
@@ -23,15 +22,31 @@ export async function joinWaitlist(prevState: any, formData: FormData) {
       return { success: false, message: result.error.errors[0].message }
     }
 
-    const { data, error } = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
+    // Configure nodemailer transporter
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: Number(process.env.EMAIL_PORT) || 587,
+      secure: false,
+      requireTLS: false,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    })
+
+    // Send email using nodemailer
+    const info = await transporter.sendMail({
+      from: 'da76780@gmail.com',
       to: email.toString(),
       subject: 'Welcome to Our Waitlist!',
       html: EmailTemplate({ email: email.toString() }),
     })
 
-    if (error) {
-      console.error('Error sending email:', error)
+    if (!info) {
+      console.error('Error sending email')
       return { success: false, message: 'Failed to join waitlist. Please try again.' }
     }
 
@@ -58,4 +73,3 @@ export async function getWaitlistCount() {
     return 0
   }
 }
-

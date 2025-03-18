@@ -100,7 +100,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-blue-900/50">
+          <div className="feature-card bgw-black/30 backdrop-blur-sm p-6 rounded-xl border border-blue-900/50">
             <div className="flex justify-center mb-4">
               <MessageSquare className="h-12 w-12 text-blue-400" />
             </div>
