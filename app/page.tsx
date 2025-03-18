@@ -1,7 +1,6 @@
 "use client"
 
 import { WaitlistSignup } from "./components/waitlist-signup"
-import { Toaster } from "react-hot-toast"
 import { ArrowRight, FileText, GitPullRequest, Github, MessageSquare } from "lucide-react"
 
 const backgroundStyle = `
@@ -126,18 +125,6 @@ export default function Home() {
           <p className="text-sm">Presented by pype</p>
         </footer>
       </div>
-
-      <Toaster
-        toastOptions={{
-          style: {
-            background: "rgb(23 23 23)",
-            color: "white",
-            border: "1px solid rgb(63 63 70)",
-          },
-          className: "rounded-xl",
-          duration: 5000,
-        }}
-      />
     </main>
   )
 }
