@@ -18,6 +18,7 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
   const toast = useToast()
 
   useEffect(() => {
+
     if (state?.success) {
       toast.success({
         title: "Success!",
