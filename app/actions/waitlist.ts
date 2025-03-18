@@ -3,7 +3,6 @@
 import { z } from 'zod'
 import { Resend } from 'resend'
 import { EmailTemplate } from '../components/email-template'
-// import { redis } from '../lib/redis'
 
 const schema = z.object({
   email: z.string().email('Invalid email address'),
@@ -24,10 +23,6 @@ export async function joinWaitlist(prevState: any, formData: FormData) {
       return { success: false, message: result.error.errors[0].message }
     }
 
-    // Store email in Upstash Redis
-    // await redis.sadd('waitlist_emails', email.toString())
-
-    // Send welcome email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
       to: email.toString(),
@@ -58,8 +53,6 @@ export async function joinWaitlist(prevState: any, formData: FormData) {
 
 export async function getWaitlistCount() {
   try {
-    // const count = await redis.scard('waitlist_emails')
-    // return count
     return 100
   } catch (error) {
     return 0
