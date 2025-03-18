@@ -96,7 +96,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">PR Context</h3>
             <p className="text-gray-400">
-              Captures the "why" behind code decisions by analyzing pull request discussions.
+              Captures the &quot;why&quot; behind code decisions by analyzing pull request discussions.
             </p>
           </div>
 
