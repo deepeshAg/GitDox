@@ -1,6 +1,6 @@
 # GitDox
 
-GitDox is a revolutionary GitHub app that transforms how teams handle documentation by completely automating the process. It intelligently analyzes your codebase, pull requests, and issues to generate comprehensive documentation that evolves alongside your code. This project is written in TypeScript and built with Node.js leveraging React and Next.js.
+GitDox is a revolutionary GitHub app that transforms how teams handle documentation by completely automating the process. It intelligently analyzes your codebase, pull requests, and issues to generate comprehensive documentation that evolves alongside your code. This project is written in TypeScript and built with Node.js, leveraging React and Next.js.
 
 ## Table of Contents
 
@@ -39,7 +39,7 @@ As this is a Node.js project, make sure you have Node.js and npm installed on yo
 4. Start the development server:
 
     ```bash
-    npm start
+    npm run dev
     ```
 
 5. Access the application at `http://localhost:3000`.
@@ -71,9 +71,9 @@ This repository is organized as follows:
       📄 social-icon.tsx 
       📝 waitlist-form.tsx 
       📝 waitlist-signup.tsx 
-    🖼 favicon.ico  
-    ⌨ globals.css  
-    📝 layout.tsx  
+      🖼 favicon.ico  
+      ⌨ globals.css  
+      📝 layout.tsx  
   ...
 ```
 
@@ -87,14 +87,19 @@ This project utilizes several frameworks and libraries, including:
 - [TypeScript](https://www.typescriptlang.org/): A typed superset of JavaScript that compiles to plain JavaScript.
 - [React](https://reactjs.org/): A JavaScript library for building user interfaces.
 - [Next.js](https://nextjs.org/): A React framework for building server-rendered applications.
-  
+
 ### Dependencies in package.json:
 The `package.json` includes various dependencies essential for running GitDox, such as:
 ```json
 "dependencies": {
   "@radix-ui/react-slot": "^1.1.2",
+  "@radix-ui/react-toast": "^1.2.6",
+  "@upstash/redis": "^1.34.5",
+  "class-variance-authority": "^0.7.1",
+  "clsx": "^2.1.1",
   "lucide-react": "^0.482.0",
   "next": "15.1.0",
+  "nodemailer": "^6.10.0",
   "react": "^19.0.0",
   ...
 }
@@ -108,6 +113,7 @@ GitDox provides numerous key features aimed at enhancing documentation managemen
 2. **Pull Request Context**: Preserves insights from pull request discussions about decisions made during development.
 3. **Issue Integration**: Captures context from issues to provide comprehensive insights into implementation details.
 4. **Intelligent Documentation**: Maintains an up-to-date set of documents that evolve along with your codebase.
+5. **User Notifications**: Integrates toast notifications via Radix UI for feedback on actions performed within the app.
 
 ## Configuration Options
 
@@ -116,6 +122,9 @@ Users can customize their experience through several options within GitDox:
 1. **README Format**: Configure different styles for generated READMEs based on specific needs.
 2. **Custom Templates**: Create tailored documentation templates that align with organizational branding.
 3. **PR Behavior Control**: Set rules on when GitDox creates documentation pull requests—either automatically or manually.
+
+### ESLint Configuration
+The project employs ESLint with a configuration focused on Next.js best practices defined in `eslint.config.mjs`. The rule `"react/no-unescaped-entities"` has been turned off to accommodate specific content requirements.
 
 ## FAQ
 
@@ -143,10 +152,7 @@ This project is licensed under no specific license at this time.
 - Enhanced functionality in intelligent code analysis methodology for generating dynamic README content based on ongoing changes in the codebase.
 
 #### Improvements:
-- Optimized rendering logic in `app/page.tsx`.
-  
-#### Changes Summary:
-This release reflects modifications in three files—updated visual assets in `public/gitdox-logo.png` and `public/working-gif.gif`, enhancing overall appearance while introducing refinements in existing functionalities related to automated documentation generation processes.
+- Modified ESLint configuration in `eslint.config.mjs` to enhance compatibility with Next.js core web vitals by turning off certain rules that could hinder development flexibility.
 
 --- 
 
