@@ -24,6 +24,13 @@ const backgroundStyle = `
     z-index: 2;
   }
 
+  /* Add extra spacing to section headings */
+  h2.section-heading {
+    margin-top: 4rem;
+    margin-bottom: 2.5rem;
+    padding-top: 1.5rem;
+  }
+
   .feature-card {
     transition: all 0.3s ease;
   }
@@ -80,6 +87,19 @@ const backgroundStyle = `
     color: #60A5FA;
     font-style: italic;
   }
+  
+  .side-by-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .side-by-side {
+      grid-template-columns: 1fr;
+    }
+  }
 
   .pain-point-card {
     transition: all 0.3s ease;
@@ -105,41 +125,46 @@ export default function Home() {
       <div className="bg-pattern"></div>
       <div className="content w-full max-w-6xl mx-auto">
         {/* Hero Section */}
-        <div className="mb-16 space-y-6 mt-10 text-center">
-          <div className="flex items-center justify-center mb-2">
-            <Github className="h-10 w-10 md:h-12 md:w-12 text-blue-400 mr-3" />
-            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">GitDox</h1>
-          </div>
-          <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
-            <span className="block">Focus on Building.</span>
-            <span className="block text-blue-400">We'll Handle the Docs.</span>
-          </h2>
+        {/* Hero Section */}
+        <section id="hero" className="h-[100vh]">
+          <div className="content flex items-center justify-center h-full">
+            <div className="space-y-6 text-center my-auto">
+              <div className="flex items-center justify-center mb-2">
+                <Github className="h-10 w-10 md:h-12 md:w-12 text-blue-400 mr-3" />
+                <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">GitDox</h1>
+              </div>
+              <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
+                <span className="block">Focus on Building.</span>
+                <span className="block text-blue-400">We'll Handle the Docs.</span>
+              </h2>
 
-          <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Stop wasting time writing documentation. GitDox automatically generates comprehensive docs by analyzing your code, PRs, and issues while you focus on what matters - building great software.
-          </p>
+              <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                Stop wasting time writing documentation. GitDox automatically generates comprehensive docs by analyzing your code, PRs, and issues while you focus on what matters - building great software.
+              </p>
 
-          <div className="flex justify-center mt-8 space-x-4">
-            <a
-              href="#pain-points"
-              className="flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg"
-            >
-              How It Works
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-            <a
-              href="#installation"
-              className="flex items-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-white bg-transparent hover:bg-black/20 md:text-lg"
-            >
-              Get Started
-              <Code className="ml-2 h-5 w-5" />
-            </a>
+              <div className="flex justify-center mt-8 space-x-4">
+                <a
+                  href="#pain-points"
+                  className="flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg"
+                >
+                  How It Works
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+                <a
+                  href="#installation"
+                  className="flex items-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-white bg-transparent hover:bg-black/20 md:text-lg"
+                >
+                  Get Started
+                  <Code className="ml-2 h-5 w-5" />
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* Developer Pain Points Section */}
-        <div id="pain-points" className="mb-20">
-          <h2 className="text-3xl font-bold text-white mb-10 text-center">Why READMEs Are Hard to Write</h2>
+        <div id="" className="mb-20">
+          <h2 className="text-3xl font-bold text-white section-heading text-center">Why READMEs Are Hard to Write</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="pain-point-card bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-red-900/50">
@@ -225,8 +250,8 @@ export default function Home() {
         </div>
 
         {/* How It Works Section */}
-        <div id="getting-started" className="mb-20 mt-40">
-          <h2 className="text-3xl font-bold text-white mb-10 text-center">How GitDox README Generation Works</h2>
+        <div id="pain-points" className="mb-20 mt-40">
+          <h2 className="text-3xl font-bold text-white section-heading text-center">How GitDox README Generation Works</h2>
           
           <div className="bg-black/30 backdrop-blur-sm p-8 rounded-xl border border-blue-900/50 mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -312,22 +337,28 @@ export default function Home() {
 
         {/* Installation Guide */}
         <div id="installation" className="mb-20">
-          <h2 className="text-3xl font-bold text-white mb-10 text-center">Getting a Perfect README with GitDox</h2>
+          <h2 className="text-3xl font-bold text-white section-heading text-center">Getting a Perfect README with GitDox</h2>
           
           <div className="bg-black/30 backdrop-blur-sm p-8 rounded-xl border border-blue-900/50 mb-8">
-            <h3 className="text-xl font-semibold text-white mb-4">1. Add GitDox as a collaborator</h3>
-            <p className="text-gray-300 mb-4">
-              Go to your GitHub repository, navigate to Settings {">"} Collaborators, and add
-              <span className="text-blue-400 mx-2 font-mono">@gitdox-ai</span> as a collaborator.
-            </p>
-            <div className="code-block text-gray-300 mb-4">
-              <p>https://github.com/username/your-repo/settings/access</p>
-            </div>
-            
-            {/* GIF Container for Adding Collaborator */}
-            <div className="gif-container">
-              <div className="gif-placeholder">
-                [GIF showing the process of adding @gitdox-ai as a collaborator will appear here]
+            <div className="flex gap-14">
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-4">1. Add GitDox as a collaborator</h3>
+                <p className="text-gray-300 mb-4">
+                  Go to your GitHub repository, navigate to Settings {">"} Collaborators, and add
+                  <span className="text-blue-400 mx-2 font-mono">@gitdox-ai</span> as a collaborator.
+                </p>
+                <div className="code-block text-gray-300 mb-4">
+                  <p>https://github.com/username/your-repo/settings/access</p>
+                </div>
+              </div>
+              <div className="">
+                <Image 
+                  src="/working-gif.gif" 
+                  width={400} 
+                  height={400} 
+                  alt="How to add GitDox as a collaborator" 
+                  className="rounded-lg border border-blue-500/30"
+                />
               </div>
             </div>
           </div>
@@ -372,7 +403,7 @@ export default function Home() {
 
         {/* Configuration Options */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-white mb-10 text-center">Configuration Options</h2>
+          <h2 className="text-3xl font-bold text-white section-heading text-center">Configuration Options</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-blue-900/50">
@@ -419,7 +450,7 @@ export default function Home() {
 
         {/* FAQ Section */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-white section-heading text-center">Frequently Asked Questions</h2>
           
           <div className="space-y-6">
             <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-blue-900/50">
