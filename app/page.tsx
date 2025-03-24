@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { WaitlistSignup } from "./components/waitlist-signup"
 import { ArrowRight, FileText, GitPullRequest, Github, MessageSquare, Code, Book, Settings, Check, Clock, X } from "lucide-react"
 
 const backgroundStyle = `
@@ -17,6 +16,24 @@ const backgroundStyle = `
     background-size: 20px 20px;
     pointer-events: none;
     z-index: 1;
+  }
+
+   .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.5);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.7);
   }
 
   .content {
@@ -487,15 +504,86 @@ export default function Home() {
           </div>
         </div>
 
-        <footer className="mt-12 text-center text-gray-400">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Github className="h-5 w-5" />
-            <span>
-              Build software, not documentation with <span className="text-blue-400 font-semibold">GitDox</span>
-            </span>
+     <footer className="mt-24 pt-12 pb-12 border-t border-gray-800 text-gray-400">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Company Info Column */}
+        <div className="md:col-span-1">
+          <h3 className="text-white font-medium mb-6">Pype AI</h3>
+          <div className="space-y-2">
+            <p className="text-gray-400">56, 1st Floor, Bhive,</p>
+            <p className="text-gray-400">Whitefield, Bangalore</p>
           </div>
-          <p className="text-sm">Presented by pype</p>
-        </footer>
+          <div className="flex space-x-4 mt-6">
+            <a href="https://www.linkedin.com/company/pype-ai/" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-md flex items-center justify-center hover:bg-blue-600 transition duration-150">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@PypeAI-v7p" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-md flex items-center justify-center hover:bg-blue-600 transition duration-150">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        {/* Menu Column - Properly centered */}
+        <div className="md:col-span-1 md:justify-self-center">
+          <h3 className="text-white font-medium mb-6">MENU</h3>
+          <ul className="space-y-3">
+            <li><a href="https://pypeai.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-150">Visit Pype AI</a></li>
+            <li><a href="#" className="text-gray-400 hover:text-white transition duration-150">Pricing</a></li>
+            <li><a href="https://calendly.com/dhruv-pypeai/onboarding?month=2025-03" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-150">Contact</a></li>
+            <li>
+            <a href="#" className="text-gray-400 hover:text-white transition duration-150 relative group">
+              Legal
+              <div className="absolute bottom-full left-0 mb-2 w-80 md:w-96 bg-gray-900 text-gray-300 p-4 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 text-xs leading-relaxed border border-gray-700 z-50 max-h-60 overflow-y-auto custom-scrollbar">
+                <p className="font-semibold mb-2">MIT License</p>
+                <p className="mb-2">Copyright (c) 2023 Stanford Future Data Systems</p>
+                <p className="mb-2">Permission is hereby granted, free of charge, to any person obtaining a copy
+                of this software and associated documentation files (the "Software"), to deal
+                in the Software without restriction, including without limitation the rights
+                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                copies of the Software, and to permit persons to whom the Software is
+                furnished to do so, subject to the following conditions:</p>
+                <p className="mb-2">The above copyright notice and this permission notice shall be included in all
+                copies or substantial portions of the Software.</p>
+                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                SOFTWARE.</p>
+              </div>
+            </a>
+          </li>
+          </ul>
+        </div>
+        
+        {/* About This Tool Column */}
+        <div className="md:col-span-2">
+          <h3 className="text-white font-medium mb-6">About GitDox</h3>
+          <p className="text-gray-400 mb-4">
+            GitDox is built and maintained by Pype AI, a developer tools company focused on making documentation easier for software teams.
+          </p>
+          <p className="text-gray-400">
+            This tool automatically generates comprehensive documentation by analyzing your code, 
+            PRs, and issues while you focus on what matters - building great software.
+          </p>
+        </div>
+      </div>
+      
+    {/* Copyright Line */}
+    <div className="mt-16 text-center pt-8 border-t border-gray-800">
+      <p className="text-gray-400">© 2025 Singularity Corp Pvt. Ltd. | Made with ❤️ in India</p>
+    </div>
+  </div>
+</footer>   
       </div>
     </main>
   )
