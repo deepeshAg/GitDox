@@ -282,6 +282,7 @@ export default function Home() {
                   When code changes, documentation updates automatically. When developers discuss implementation 
                   details in PRs, that context is preserved in the docs.
                 </p>
+                
               </div>
               <div className="flex justify-center">
                 <Book className="h-32 w-32 text-blue-400" />
@@ -301,6 +302,13 @@ export default function Home() {
                     Add GitDox as a collaborator to your GitHub repository. It works silently in the background, 
                     requiring zero configuration to get started.
                   </p>
+                  <div className="bg-yellow-900/30 p-4 rounded-lg border border-yellow-500/30 mt-4">
+                  <p className="text-yellow-300 font-medium">⚠️ Important Note:</p>
+                  <p className="text-gray-300 mt-2">
+                    Please use public repositories for now. Adding GitDox to private repositories grants us access to that repo. 
+                    We're strengthening our pipeline for private repos, but currently recommend using GitDox with public repositories only.
+                  </p>
+                </div>
                 </div>
               </div>
             </div>
@@ -366,6 +374,13 @@ export default function Home() {
                 </p>
                 <div className="code-block text-gray-300 mb-4">
                   <p>https://github.com/username/your-repo/settings/access</p>
+                </div>
+                <div className="bg-yellow-900/30 p-4 rounded-lg border border-yellow-500/30 mt-4">
+                  <p className="text-yellow-300 font-medium">⚠️ Important Note:</p>
+                  <p className="text-gray-300 mt-2">
+                    Please use public repositories for now. Adding GitDox to private repositories grants us access to that repo. 
+                    We're strengthening our pipeline for private repos, but currently recommend using GitDox with public repositories only.
+                  </p>
                 </div>
               </div>
               <div className="">
